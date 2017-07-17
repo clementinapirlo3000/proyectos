@@ -1,7 +1,8 @@
 <?php
+	# Primera Edicion 170717
 	$configuracion = (object) [
 		'servidor' => 'localhost',
-		'nombreBD' => 'proyectos',
+		'nombreBD' => 'proyectos_bd',
 		'puerto' => '5432',
 		'nombreDeUsuario' => 'antoniot',
 		'contrasenia' => '123456',

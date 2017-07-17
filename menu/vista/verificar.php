@@ -7,7 +7,13 @@
 	
 	$login_bitacora		= $login;
 	$clave_bitacora 	= $contrasenna;
-	$consulta_usuario_existente	=	"SELECT * FROM rrh_usuar WHERE usu_login = '$login' AND usu_clave = '$contrasenna' AND fk_id_rrh_estat = '1'";
+	$consulta_usuario_existente	= "
+	SELECT * 
+	FROM proyectos.pro_usuar 
+	WHERE 
+	usu_login = '$login' AND
+	usu_clave = '$contrasenna' AND
+	id_pro_estat_pro_estat= '1'";
 	$usuarios_objeto_conexion_BD->ejecutar_sql($consulta_usuario_existente);
 	$registro_usuario_existente	= $usuarios_objeto_conexion_BD->obtener_arreglo_objeto();
 	$nummero_usuario_existente	= $usuarios_objeto_conexion_BD->devolver_numero_filas();
@@ -25,15 +31,15 @@ if($nummero_usuario_existente == 0)
 	}
 else
 	{
-		$idusuario 		=	$registro_usuario_existente->id_rrh_usuar;
+		$idusuario 		=	$registro_usuario_existente->id_pro_usuar;
 		$nivelusuario 	=	$registro_usuario_existente->fk_id_rrh_gusua;
 		$cedula 		=	$registro_usuario_existente->usu_cedul;
 		$nombre 		=	$registro_usuario_existente->usu_nomb1;
 		$apellido 		=	$registro_usuario_existente->usu_apel1;
 		$usuario 		=	$registro_usuario_existente->usu_login;
 		
-		$nom_proyec 	= 	'_rrhh';
-		$nom_datos 	 	= 	'rrh_';
+		$nom_proyec 	= 	'_proyectos';
+		$nom_datos 	 	= 	'pro_';
 
 		//$_SESSION['nom_proyec']					=	$nom_proyec;
 		$_SESSION['idusuarios$nom_proyec']		=	$idusuario;

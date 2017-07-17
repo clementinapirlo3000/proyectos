@@ -12,7 +12,7 @@
 //Declarando color del tema a usar
  $tema='azul';
 // Nombre del sistema en ejecucion
- $nombre='SINAPRO-RRHH';
+ $nombre='SINAPRO-PROYECTOS';
  ?>
 <!DOCTYPE html>
 <html lang="en">

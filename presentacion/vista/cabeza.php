@@ -6,7 +6,21 @@
   $cedula_carga   = $_SESSION['cedula$nom_proyec'];
   require ("../../conexion/controlador/clase_bd_conexion_postgres.php");
   $usuarios_objeto_conexion_BD  = new clase_conecta_postgresql;
-  $consulta_usuario_existente= "SELECT * FROM rrh_usuar, rrh_gusua, rrh_codci, rrh_codce WHERE fk_id_rrh_codci = id_rrh_codci AND fk_id_rrh_codce = id_rrh_codce AND id_rrh_usuar = $usuario_carga";
+  
+  $consulta_usuario_existente= "
+  SELECT * 
+  FROM rrh_usuar AS u, rrh_gusua AS g, rrh_codci AS c, rrh_codce AS e
+  WHERE 
+  fk_id_rrh_codci = id_rrh_codci AND 
+  fk_id_rrh_codce = id_rrh_codce AND 
+  id_rrh_usuar = $usuario_carga";
+
+  /*
+  SELECT o.OrderID, o.OrderDate, c.CustomerName
+  FROM Customers AS c, Orders AS o
+  WHERE c.CustomerName="Around the Horn" AND c.CustomerID=o.CustomerID;
+  */
+
   $usuarios_objeto_conexion_BD->ejecutar_sql($consulta_usuario_existente);
   $registro_usuario_existente = $usuarios_objeto_conexion_BD->obtener_arreglo_objeto();
   $id_del_usuario       = $registro_usuario_existente->id_rrh_usuar;
