@@ -1,4 +1,8 @@
 <?php
+	include("../../metodosGenericos.php");
+	escupe($_POST);
+	
+
 	session_start();
 	require ("../../conexion/controlador/clase_bd_conexion_postgres.php");
 	$usuarios_objeto_conexion_BD = new clase_conecta_postgresql;
@@ -32,11 +36,11 @@ if($nummero_usuario_existente == 0)
 else
 	{
 		$idusuario 		=	$registro_usuario_existente->id_pro_usuar;
-		$nivelusuario 	=	$registro_usuario_existente->fk_id_rrh_gusua;
-		$cedula 		=	$registro_usuario_existente->usu_cedul;
-		$nombre 		=	$registro_usuario_existente->usu_nomb1;
-		$apellido 		=	$registro_usuario_existente->usu_apel1;
-		$usuario 		=	$registro_usuario_existente->usu_login;
+		//$nivelusuario 	=	$registro_usuario_existente->fk_id_rrh_gusua;
+		$cedula 		=	$registro_usuario_existente->pro_cedul;
+		$nombre 		=	$registro_usuario_existente->pro_nomb1;
+		$apellido 		=	$registro_usuario_existente->pro_apel1;
+		$usuario 		=	$registro_usuario_existente->pro_login;
 		
 		$nom_proyec 	= 	'_proyectos';
 		$nom_datos 	 	= 	'pro_';
@@ -47,7 +51,7 @@ else
 		$_SESSION['nombre1$nom_proyec']			=	$nombre;
 		$_SESSION['apellido1$nom_proyec']		=	$apellido;
 		$_SESSION['login$nom_proyec']			=	$usuario;
-		$_SESSION['nivelesacceso$nom_proyec']	=	$nivelusuario;
+		//$_SESSION['nivelesacceso$nom_proyec']	=	$nivelusuario;
 		$_SESSION['nom_proyec']					=	$nom_proyec;
 		$_SESSION['nombre_proyecto']			=	'RECURSOS HUMANOS';
 		

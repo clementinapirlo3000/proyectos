@@ -20,22 +20,20 @@ class cIP implements iIP {
 	public static function getusrip()
 	{
 		$ip = null;
-		if ((isset($_SERVER['HTTP_X_FORWARDED_FOR'])) &&
-		    (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))) {
+		if ((isset($_SERVER['HTTP_X_FORWARDED_FOR'])) && (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])))
+		{
 			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-		} elseif ((isset($_SERVER['HTTP_CLIENT_IP'])) &&
-			  (!empty($_SERVER['HTTP_CLIENT_IP']))) {
+		}elseif((isset($_SERVER['HTTP_CLIENT_IP'])) && (!empty($_SERVER['HTTP_CLIENT_IP']))) 
+		{
 			$ip = explode(".", $_SERVER['HTTP_CLIENT_IP']);
 			$ip = "{$ip[3]}.{$ip[2]}.{$ip[1]}.{$ip[0]}";
-		} elseif ((!isset($_SERVER['HTTP_X_FORWARDED_FOR'])) &&
-			  (empty($_SERVER['HTTP_X_FORWARDED_FOR'])) &&
-			  (!isset($_SERVER['HTTP_CLIENT_IP'])) &&
-			  (empty($_SERVER['HTTP_CLIENT_IP'])) &&
-			  (isset($_SERVER['REMOTE_ADDR'])) ) {
+		}elseif ((!isset($_SERVER['HTTP_X_FORWARDED_FOR'])) && (empty($_SERVER['HTTP_X_FORWARDED_FOR'])) && 
+				(!isset($_SERVER['HTTP_CLIENT_IP'])) && (empty($_SERVER['HTTP_CLIENT_IP'])) && (isset($_SERVER['REMOTE_ADDR'])) )
+		{
 			   $ip = ($_SERVER['REMOTE_ADDR']);
-		} else {
+		}else{
 			// ip is null
-	        }
+	    }
             return ($ip);
 	}
 }
