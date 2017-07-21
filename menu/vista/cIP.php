@@ -37,10 +37,14 @@ class cIP implements iIP {
             return ($ip);
 	}
 }
+
+
 if ($TEST) { 
 	$ip	=	cIP::getusrip();
 	$ip_objeto_conexion_BD	=	new clase_conecta_postgresql;
-	$query_de_la_ip	=	"INSERT INTO rrh_dtipent (fk_id_rrh_usuar, dti_ipent, dti_fehoy) VALUES ($id_del_usuario, '$ip', NOW())";
+	$query_de_la_ip	= "
+	INSERT INTO proyectos.pro_dtipent(	id_pro_dtipent, dti_ipent, dti_deipcol, dti_feing, id_pro_usuar_pro_usuar,
+	VALUES ('192.168.0.1', 'NOSE',NOW(), $id_del_usuario)";	
 	$ip_objeto_conexion_BD->ejecutar_sql($query_de_la_ip);	
 	print "ip: $ip\n<br />";
 	print "TEST done!";

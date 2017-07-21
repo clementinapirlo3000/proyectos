@@ -37,10 +37,10 @@ else
 	{
 		$idusuario 		=	$registro_usuario_existente->id_pro_usuar;
 		$nivelusuario 	=	$registro_usuario_existente->id_pro_gusua_pro_gusua;
-		$cedula 		=	$registro_usuario_existente->pro_cedul;
-		$nombre 		=	$registro_usuario_existente->pro_nomb1;
-		$apellido 		=	$registro_usuario_existente->pro_apel1;
-		$usuario 		=	$registro_usuario_existente->pro_login;
+		$cedula 		=	$registro_usuario_existente->usu_cedul;
+		$nombre 		=	$registro_usuario_existente->usu_nomb1;
+		$apellido 		=	$registro_usuario_existente->usu_apel1;
+		$usuario 		=	$registro_usuario_existente->usu_login;
 		
 		$nom_proyec 	= 	'_proyectos';
 		$nom_datos 	 	= 	'pro_';

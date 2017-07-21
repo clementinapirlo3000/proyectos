@@ -1,15 +1,5 @@
 
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>IP real</title>
-  </head>
-  <body>
-     
-
- 
-
 <?php 
 
 
@@ -53,16 +43,9 @@ echo PHP_OS;
 
 //escupe($_SERVER);
 
+
+
+ $ip = file_get_contents('https://api.ipify.org');
+    echo "My public IP address is: " . $ip;
+
 ?>
-
-	Mi IP es: <strong id="ipId"></strong>
-    <script type="text/javascript">
-        function get_ip(obj){
-            document.getElementById('ipId').innerHTML = obj.ip;
-        }        	
- 	</script>
-    <!-- La ip es un servicio que ofrece esta web "api.ipify.org" -->
-    <script type="text/javascript" src="https://api.ipify.org/?format=jsonp&callback=get_ip"></script>
-
-	</body>
-</html>

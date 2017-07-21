@@ -11,10 +11,6 @@
 <?php 
 require ("../../presentacion/vista/cabeza.php");
 
-include("metodosGenericos.php");
-escupe($_POST);
-escupe($_GET);
- 
 ?>
 <title>MENU <?PHP echo $_SESSION['nombre_proyecto']; ?></title>
 

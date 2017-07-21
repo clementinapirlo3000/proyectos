@@ -29,8 +29,8 @@
   $apellido_del_usuario = $registro_usuario_existente->usu_apel1;
   $apellido2_del_usuario= $registro_usuario_existente->usu_apel2;
   $usu_fenac_del_usuario= $registro_usuario_existente->usu_fenac;
-  $id_codci_usuario     = $registro_usuario_existente->fk_id_rrh_codci;
-  $id_codce_usuario     = $registro_usuario_existente->fk_id_rrh_codce;
+  //$id_codci_usuario     = $registro_usuario_existente->fk_id_rrh_codci;
+  //$id_codce_usuario     = $registro_usuario_existente->fk_id_rrh_codce;
   $usu_tehab_usuario    = $registro_usuario_existente->usu_tehab;
   $usu_tecel_usuario    = $registro_usuario_existente->usu_tecel;
   $login_usuario        = $registro_usuario_existente->usu_login;
