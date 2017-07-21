@@ -3,7 +3,7 @@ session_start();
 
 $nom_proyec 	= 	$_SESSION['nom_proyec']; 
 echo '$nom_proyec: ',$nom_proyec; 
-$_SESSION['ruta$nom_proyec'] = 'http://localhost/proyectos/';
+$_SESSION['ruta$nom_proyec'] = 'http://172.16.8.9/proyectos/';
 if(!isset($_SESSION['login$nom_proyec']))
 {         
   echo"</br></br></br></br></br> 

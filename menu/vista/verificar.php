@@ -1,6 +1,6 @@
 <?php
-	include("../../metodosGenericos.php");
-	escupe($_POST);
+	//include("../../metodosGenericos.php");
+	//escupe($_POST);
 	
 
 	session_start();

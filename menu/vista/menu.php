@@ -12,6 +12,7 @@
 require ("../../presentacion/vista/cabeza.php");
 
 ?>
+
 <title>MENU <?PHP echo $_SESSION['nombre_proyecto']; ?></title>
 
 </head> 
@@ -114,12 +115,19 @@ require ("../../presentacion/vista/cabeza.php");
 		<p class="text-warning"><h6><small><strong>T.S.U.</strong><em> Antonio Tortorella</em> -- <strong>Ing.</strong><em> Cecil Bautista</em></small></h6></p>
 	</div>
 </div>
-<?PHP require ("../../presentacion/vista/pie.php"); ?>
+<?PHP 
+	require ("../../presentacion/vista/pie.php"); 
+
+?>
 </body>
 </html>                                   
 <?php 
+
+	echo $_GET['bandera_entrada'];
+
 ////// Se registra en la bitacora la acción del usuario             //
   require ("../../bitacora/vista/bitacora.php");
+
   $descripcion_tabla = $datos_anteriores = ""; $datos_nuevos = "";            
   $descripcion_tabla = "menu";
   $descripcion_ejecucion = "menu.php";
@@ -128,15 +136,23 @@ require ("../../presentacion/vista/cabeza.php");
   $datos_anteriores = "NO APLICA";
   $datos_nuevos = "NO APLICA";
   movimiento($movimiento_bitacora,$objeto_bitacora,$datos_anteriores,$datos_nuevos);
+
 /////-------------------------------------------------------------------------//
+
+
 if (!empty($_GET['bandera_entrada']))
 { 
 	$bandera_entrada = $_GET['bandera_entrada'];
 	if ($bandera_entrada == 1)
 	{
-	  include ("cIP.php");
+		require ("cIP.php");
+		$Set_ip = new Almacenar_datos_entorno($id_del_usuario);
+		$Set_ip->Set_ip();
+				
 	}
 }
 $usuarios_objeto_conexion_BD->cerrar_conexion();
 
+
 ?>
+

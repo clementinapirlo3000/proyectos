@@ -1,53 +1,49 @@
 <?PHP
-//echo 'login:',$login."<br>";
-//echo 'id_del_usuario:',$id_del_usuario."<br>";
-//$Id: cIP.php,v 1.0 2010/10/14 20:07:04 laudarch Exp $ */
-# Set to true if you want to test the class
+class Almacenar_datos_entorno
+{ 
 
-$TEST = true;
-    
-interface iIP {
-	public static function getusrip();
-}
-    
-class cIP implements iIP {
-	/**
-	 * Returns User IP Address
-	 * @params
-	 *        IN:  NONE
-	 *        OUT: ip address(0.0.0.0)
-	 */
-	public static function getusrip()
+   	public $dti_ipent;
+   	public $dti_deipcol;
+   	public $id_del_usuario;
+   	public $server_name;
+   	public $server_addr;
+   	public $http_host;
+   	public $http_user_agent;
+	
+
+	public function __construct
+	( 
+		string $dti_ipent = "",
+	   	string $dti_deipcol = "",
+	   	int $id_del_usuario = 1 ,
+	   	string $server_name = "",
+	   	string $server_addr = "",
+	   	string $remote_addr = "",
+	   	string $http_host = "",
+	   	string $http_user_agent = ""
+	   	
+	)
 	{
-		$ip = null;
-		if ((isset($_SERVER['HTTP_X_FORWARDED_FOR'])) && (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])))
-		{
-			$ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-		}elseif((isset($_SERVER['HTTP_CLIENT_IP'])) && (!empty($_SERVER['HTTP_CLIENT_IP']))) 
-		{
-			$ip = explode(".", $_SERVER['HTTP_CLIENT_IP']);
-			$ip = "{$ip[3]}.{$ip[2]}.{$ip[1]}.{$ip[0]}";
-		}elseif ((!isset($_SERVER['HTTP_X_FORWARDED_FOR'])) && (empty($_SERVER['HTTP_X_FORWARDED_FOR'])) && 
-				(!isset($_SERVER['HTTP_CLIENT_IP'])) && (empty($_SERVER['HTTP_CLIENT_IP'])) && (isset($_SERVER['REMOTE_ADDR'])) )
-		{
-			   $ip = ($_SERVER['REMOTE_ADDR']);
-		}else{
-			// ip is null
-	    }
-            return ($ip);
+        $this->dti_ipent = $_SERVER['SERVER_NAME']; 
+	   	$this->dti_deipcol = "NULL";
+	   	$this->id_del_usuario = $id_del_usuario;
+	   	$this->server_name = $_SERVER['SERVER_NAME'];
+	   	$this->server_addr = $_SERVER['SERVER_ADDR'];
+	   	$this->remote_addr = $_SERVER['REMOTE_ADDR'];
+	   	$this->http_host = $_SERVER['HTTP_HOST'];
+	   	$this->http_user_agent = $_SERVER['HTTP_USER_AGENT'];
+	   	
+    }
+    	
+    Public function Set_ip()
+    {
+
+	    $ip_objeto_conexion_BD	=	new clase_conecta_postgresql;
+			$query_de_la_ip	= "
+			INSERT INTO proyectos.pro_dtipent( dti_ipent, dti_deipcol, dti_feing, id_pro_usuar_pro_usuar , dti_server_name, dti_server_addr, dti_remote_addr, dti_http_host, dti_http_user_agent)
+			VALUES ('$this->dti_ipent', '$this->dti_deipcol', 'NOW()', $this->id_del_usuario, '$this->server_name', '$this->server_addr', '$this->remote_addr', '$this->http_host', '$this->http_user_agent')
+			";	
+			$ip_objeto_conexion_BD->ejecutar_sql($query_de_la_ip);		
 	}
-}
-
-
-if ($TEST) { 
-	$ip	=	cIP::getusrip();
-	$ip_objeto_conexion_BD	=	new clase_conecta_postgresql;
-	$query_de_la_ip	= "
-	INSERT INTO proyectos.pro_dtipent(	id_pro_dtipent, dti_ipent, dti_deipcol, dti_feing, id_pro_usuar_pro_usuar,
-	VALUES ('192.168.0.1', 'NOSE',NOW(), $id_del_usuario)";	
-	$ip_objeto_conexion_BD->ejecutar_sql($query_de_la_ip);	
-	print "ip: $ip\n<br />";
-	print "TEST done!";
-	exit;
 } 
 ?>

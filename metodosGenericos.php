@@ -8,5 +8,5 @@ function escupe($matriz)
 	}
 }
 
-
+function escupe2($matriz){ foreach ($matriz as $nombreCampo => $valor )	{ echo $nombreCampo.="=";  echo $valor.="<BR>";	} }
 ?>
