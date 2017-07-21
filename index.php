@@ -76,7 +76,7 @@
                   <br>
                 </div>
                 <div class="center-block">
-                  <center><img class="img-rounded img-responsive" src="pictures/rrhh2.png" ></center>
+                  <center><img class="img-rounded img-responsive" src="pictures/proyectos.png" ></center>
                   
 
                 </div>

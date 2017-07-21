@@ -9,8 +9,8 @@
 	$login 				= $_POST['login'];
 	$contrasenna 		= $_POST['password'];
 	
-	$login_bitacora		= $login;
-	$clave_bitacora 	= $contrasenna;
+	$login_bitacora		= $login;		// Para Bitacora
+	$clave_bitacora 	= $contrasenna; // Para Bitacora
 	$consulta_usuario_existente	= "
 	SELECT * 
 	FROM proyectos.pro_usuar 
@@ -36,7 +36,7 @@ if($nummero_usuario_existente == 0)
 else
 	{
 		$idusuario 		=	$registro_usuario_existente->id_pro_usuar;
-		//$nivelusuario 	=	$registro_usuario_existente->fk_id_rrh_gusua;
+		$nivelusuario 	=	$registro_usuario_existente->id_pro_gusua_pro_gusua;
 		$cedula 		=	$registro_usuario_existente->pro_cedul;
 		$nombre 		=	$registro_usuario_existente->pro_nomb1;
 		$apellido 		=	$registro_usuario_existente->pro_apel1;
@@ -45,18 +45,19 @@ else
 		$nom_proyec 	= 	'_proyectos';
 		$nom_datos 	 	= 	'pro_';
 
-		//$_SESSION['nom_proyec']					=	$nom_proyec;
+		$_SESSION['nom_proyec']					=	$nom_proyec;
 		$_SESSION['idusuarios$nom_proyec']		=	$idusuario;
 		$_SESSION['cedula$nom_proyec']			=	$cedula;
 		$_SESSION['nombre1$nom_proyec']			=	$nombre;
 		$_SESSION['apellido1$nom_proyec']		=	$apellido;
 		$_SESSION['login$nom_proyec']			=	$usuario;
-		//$_SESSION['nivelesacceso$nom_proyec']	=	$nivelusuario;
+		$_SESSION['nivelesacceso$nom_proyec']	=	$nivelusuario;
 		$_SESSION['nom_proyec']					=	$nom_proyec;
-		$_SESSION['nombre_proyecto']			=	'RECURSOS HUMANOS';
+		$_SESSION['nombre_proyecto']			=	'proyectos';
 		
 		echo "<script languaje='Javascript'>location.href='menu.php?bandera_entrada=1'</script>";
 	}
+/*
 ////// Se registra en la bitacora la acción del usuario             //
   require ("../../bitacora/vista/bitacora.php");
   $descripcion_tabla = $datos_anteriores = ""; $datos_nuevos = "";            
@@ -68,6 +69,7 @@ else
   $datos_nuevos = "LOGIN: ".' '.$login_bitacora;
   movimiento($movimiento_bitacora,$objeto_bitacora,$datos_anteriores,$datos_nuevos);
 /////-------------------------------------------------------------------------//
+*/
 $usuarios_objeto_conexion_BD->cerrar_conexion();
 echo "</body>";
 ?>

@@ -9,11 +9,8 @@
   
   $consulta_usuario_existente= "
   SELECT * 
-  FROM rrh_usuar AS u, rrh_gusua AS g, rrh_codci AS c, rrh_codce AS e
-  WHERE 
-  fk_id_rrh_codci = id_rrh_codci AND 
-  fk_id_rrh_codce = id_rrh_codce AND 
-  id_rrh_usuar = $usuario_carga";
+  FROM proyectos.pro_usuar
+  WHERE id_pro_usuar = '1' ";
 
   /*
   SELECT o.OrderID, o.OrderDate, c.CustomerName
@@ -23,8 +20,9 @@
 
   $usuarios_objeto_conexion_BD->ejecutar_sql($consulta_usuario_existente);
   $registro_usuario_existente = $usuarios_objeto_conexion_BD->obtener_arreglo_objeto();
-  $id_del_usuario       = $registro_usuario_existente->id_rrh_usuar;
-  $fk_nivel_del_usuario = $registro_usuario_existente->fk_id_rrh_gusua;
+  
+  $id_del_usuario       = $registro_usuario_existente->id_pro_usuar;
+  //$fk_nivel_del_usuario = $registro_usuario_existente->fk_id_rrh_gusua;
   $cedula_usuario       = $registro_usuario_existente->usu_cedul;
   $nombre_del_usuario   = $registro_usuario_existente->usu_nomb1;
   $nombre2_del_usuario  = $registro_usuario_existente->usu_nomb2;
@@ -41,11 +39,11 @@
   $direc_usuario        = $registro_usuario_existente->usu_direc;
   $clave_usuario        = $registro_usuario_existente->usu_clave;
   $sexo_usuario         = $registro_usuario_existente->usu_sexo;
-  $zopos_usuario        = $registro_usuario_existente->fk_id_rrh_zopos;
-  $codnumer_usuario     = $registro_usuario_existente->cod_numer;
-  $niv_descr            = $registro_usuario_existente->id_rrh_gusua;
-  $nombre_descr         = $registro_usuario_existente->gus_descr;
-  $profesiones          = $registro_usuario_existente->fk_id_rrh_profe;
+  //$zopos_usuario        = $registro_usuario_existente->fk_id_rrh_zopos;
+  //$codnumer_usuario     = $registro_usuario_existente->cod_numer;
+  $niv_descr            = $registro_usuario_existente->id_pro_gusua_pro_gusua;
+  //$nombre_descr         = $registro_usuario_existente->gus_descr;
+  //$profesiones          = $registro_usuario_existente->fk_id_rrh_profe;
 
   $usuario_actuante = 'ID: '.$usuario_carga.' '.$cedula_usuario.' '.$nombre_del_usuario.' '.$apellido_del_usuario;
   $usuarios_objeto_conexion_BD->liberar_resultado();

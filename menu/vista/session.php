@@ -1,9 +1,11 @@
 <?php
 session_start();
+function escupe2($matriz){ foreach ($matriz as $nombreCampo => $valor )	{ echo $nombreCampo.="=";  echo $valor.="<BR>";	} }
+escupe2($_POST);
 $nom_proyec 	= 	$_SESSION['nom_proyec']; 
 //echo '$nom_proyec: ',$nom_proyec; 
-$_SESSION['ruta$nom_proyec'] = 'http://localhost/sinapro/rrhh/';
-if(!isset($_SESSION['login$nom_proyec']))
+$_SESSION['ruta$nom_proyec'] = 'http://localhost/sinapro/proyectos/';
+/*if(!isset($_SESSION['login$nom_proyec']))
 {         
   echo"</br></br></br></br></br> 
     <script type='text/javascript' src='".$_SESSION['ruta$nom_proyec']."bootstrap-3.3.7/dist/js/jquery-1.12.4.js'></script>
@@ -13,5 +15,5 @@ if(!isset($_SESSION['login$nom_proyec']))
     </div>
     <meta http-equiv='Refresh' content='3;url='../../index.php'>";		
   exit();
-}
+}*/
 ?>
