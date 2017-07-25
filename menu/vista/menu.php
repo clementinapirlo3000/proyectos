@@ -8,10 +8,7 @@
   * Formulario para el ingreso al menu del sistema
   *
 */-->
-<?php 
-require ("../../presentacion/vista/cabeza.php");
-
-?>
+<?php require ("../../presentacion/vista/cabeza.php"); ?>
 
 <title>MENU <?PHP echo $_SESSION['nombre_proyecto']; ?></title>
 
@@ -33,7 +30,7 @@ require ("../../presentacion/vista/cabeza.php");
 		<ul class="nav navbar-nav">
 		  <li class="dropdown">
 			<a href="#cargas" class="dropdown-toggle" data-toggle="dropdown">
-			  Cargas <b class="caret"></b>
+			  En Construccion <b class="caret"></b>
 			</a>
 			<ul class="dropdown-menu">
 			  <li><a href="<?PHP echo $_SESSION['ruta$nom_proyec']; ?>niveles/controlador/consulta_niveles.php">Niveles de Acceso</a></li>
@@ -75,7 +72,7 @@ require ("../../presentacion/vista/cabeza.php");
 		  </li>
 		  <li class="dropdown">
 			<a href="#reportes" class="dropdown-toggle" data-toggle="dropdown">
-			  Reportes <b class="caret"></b>
+			  En Construccion <b class="caret"></b>
 			</a>
 			<ul class="dropdown-menu">
 			  <li><a href="#Reporte1">Niveles de Acceso</a></li>
@@ -88,7 +85,28 @@ require ("../../presentacion/vista/cabeza.php");
 					<li><a href="#Separador2">Separador2</a></li>
 			</ul>
 		  </li>
-		  <li class="active"><a href="#">Enlace #1</a></li>
+		<!-- Inicio de menu proyectos -->
+		  <li class="active">
+		  	<a href="#proyectos" class="dropdown-toggle" data-toggle="dropdown">
+		  		Proyectos <b class="caret"></b>
+		  	</a>
+		  	<ul class="dropdown-menu">
+			  		<li><a href="<?PHP echo $_SESSION['ruta$nom_proyec']; ?>proyectos/vista/agr_proyecto.php">Proyectos</a></li>
+					<li><a href="#Reporte1">p1</a></li>
+					<li><a href="<?PHP echo $_SESSION['ruta$nom_proyec']; ?>empleados/controlador/consulta_empleados.php">Empleados</a></li>
+					<li><a href="<?PHP echo $_SESSION['ruta$nom_proyec']; ?>empleados/controlador/consulta_empleados.php">Registrar Proyecto</a></li>
+					<li><a href="#Reporte2">p2</a></li>
+					<li><a href="#Reporte3">p3</a></li>
+					<li role="separator" class="divider"></li>
+					<li class="dropdown-header">Separador1</li>
+					<li><a href="#Separador1">p1</a></li>
+					<li><a href="#Separador2">p2</a></li>
+			</ul>
+		  </li>
+		<!-- FIN de menu proyectos -->
+
+
+
 		  <li><a href="#">Enlace #2</a></li>
 		</ul>	 
 		<form class="navbar-form navbar-left" role="search">
@@ -135,7 +153,7 @@ require ("../../presentacion/vista/cabeza.php");
   $objeto_bitacora = "SOLICITAR NAVEGACION MENU DEL SISTEMA";
   $datos_anteriores = "NO APLICA";
   $datos_nuevos = "NO APLICA";
-  movimiento($movimiento_bitacora,$objeto_bitacora,$datos_anteriores,$datos_nuevos);
+  movimiento($movimiento_bitacora,$objeto_bitacora,$datos_anteriores,$datos_nuevos, $_SESSION['idusuario']);
 
 /////-------------------------------------------------------------------------//
 
@@ -146,7 +164,7 @@ if (!empty($_GET['bandera_entrada']))
 	if ($bandera_entrada == 1)
 	{
 		require ("cIP.php");
-		$Set_ip = new Almacenar_datos_entorno($id_del_usuario);
+		$Set_ip = new Almacenar_datos_entorno("", "", $_SESSION['idusuario'], "", "", "", "", "");
 		$Set_ip->Set_ip();
 				
 	}

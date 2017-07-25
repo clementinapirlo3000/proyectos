@@ -45,6 +45,7 @@ else
 		$nom_proyec 	= 	'_proyectos';
 		$nom_datos 	 	= 	'pro_';
 
+		$_SESSION['idusuario']					=	$idusuario;
 		$_SESSION['nom_proyec']					=	$nom_proyec;
 		$_SESSION['idusuarios$nom_proyec']		=	$idusuario;
 		$_SESSION['cedula$nom_proyec']			=	$cedula;
