@@ -81,4 +81,6 @@ $("#fnacimiento").datepicker();
 </script>
 
 -->
+</body>
+</html>
 <?php echo "pie"; ?>

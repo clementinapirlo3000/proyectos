@@ -1,4 +1,5 @@
 <?php
+
   require ("../../menu/vista/session.php");
   $nivel = $_SESSION['nivelesacceso$nom_proyec'];
   $login          = $_SESSION['login$nom_proyec'];
@@ -10,7 +11,7 @@
   $consulta_usuario_existente= "
   SELECT * 
   FROM proyectos.pro_usuar
-  WHERE id_pro_usuar = '1' ";
+  WHERE id_pro_usuar = 1 ";
 
   /*
   SELECT o.OrderID, o.OrderDate, c.CustomerName
@@ -49,6 +50,10 @@
   $usuarios_objeto_conexion_BD->liberar_resultado();
 
 
+echo "cabeza";
+echo "<br>";
+echo $_SESSION['ruta$nom_proyec'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,3 +75,5 @@
     <link href="<?PHP echo $_SESSION['ruta$nom_proyec']; ?>bootstrap-3.3.7/dist/iconos/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='<?PHP echo $_SESSION['ruta$nom_proyec']; ?>bootstrap-3.3.7/dist/css/family-Passion-One.css' rel='stylesheet' type='text/css'>
     <link href='<?PHP echo $_SESSION['ruta$nom_proyec']; ?>bootstrap-3.3.7/dist/css/family-Oxygen.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>

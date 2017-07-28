@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-echo $nom_proyec = $_SESSION['nom_proyec']; 
+$nom_proyec = $_SESSION['nom_proyec']; 
 
 $_SESSION['ruta$nom_proyec'] = 'http://172.16.8.9/proyectos/';
 if(!isset($_SESSION['login$nom_proyec']))
@@ -13,6 +13,6 @@ if(!isset($_SESSION['login$nom_proyec']))
       <br>
     </div>
     <meta http-equiv='Refresh' content='3;url='../../index.php'>";		
-  exit();
+  
 }
 ?>

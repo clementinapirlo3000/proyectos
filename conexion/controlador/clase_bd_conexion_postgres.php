@@ -175,9 +175,9 @@
 		public function generaSelect($comando_sql, $nameId, $selected, $titulo)
 		{
 		  $contador = 0;
-		  $sentenciaSQL=self::ejecutar_consulta($comando_sql);
+		  $sentenciaSQL=self::ejecutar_sql($comando_sql);
 		  echo "<select name='$nameId' id='$nameId' title='$titulo' style='width: 380px;'>";
-		  echo "<option value='No Aplica' title='No Aplica el Diagn&oacute;stico'>[No Aplica]</option>";
+		  echo "<option value='No Aplica' title='No Aplica el diagnostico'>[No Aplica]</option>";
 		  while($registro=self::obtener_arreglo())
 		  {  
 		    ?><option value="<?php echo $registro[0]; ?>" <?php if ($registro[0] == $selected) { ?> selected <?php } ?> title="<?php echo $registro[1]; ?>"> <?php echo $registro[0]." | ".$registro[1]; ?></option><?php

@@ -86,25 +86,10 @@
 			</ul>
 		  </li>
 		<!-- Inicio de menu proyectos -->
-		  <li class="active">
-		  	<a href="#proyectos" class="dropdown-toggle" data-toggle="dropdown">
-		  		Proyectos <b class="caret"></b>
-		  	</a>
-		  	<ul class="dropdown-menu">
-			  		<li><a href="<?PHP echo $_SESSION['ruta$nom_proyec']; ?>proyectos/vista/agr_proyecto.php">Proyectos</a></li>
-					<li><a href="#Reporte1">p1</a></li>
-					<li><a href="<?PHP echo $_SESSION['ruta$nom_proyec']; ?>empleados/controlador/consulta_empleados.php">Empleados</a></li>
-					<li><a href="<?PHP echo $_SESSION['ruta$nom_proyec']; ?>empleados/controlador/consulta_empleados.php">Registrar Proyecto</a></li>
-					<li><a href="#Reporte2">p2</a></li>
-					<li><a href="#Reporte3">p3</a></li>
-					<li role="separator" class="divider"></li>
-					<li class="dropdown-header">Separador1</li>
-					<li><a href="#Separador1">p1</a></li>
-					<li><a href="#Separador2">p2</a></li>
-			</ul>
-		  </li>
+		  
+		<?php require ("menu_seccion_proyectos.php"); ?>  
+		
 		<!-- FIN de menu proyectos -->
-
 
 
 		  <li><a href="#">Enlace #2</a></li>
@@ -133,10 +118,7 @@
 		<p class="text-warning"><h6><small><strong>T.S.U.</strong><em> Antonio Tortorella</em> -- <strong>Ing.</strong><em> Cecil Bautista</em></small></h6></p>
 	</div>
 </div>
-<?PHP 
-	require ("../../presentacion/vista/pie.php"); 
-
-?>
+<?PHP  require ("../../presentacion/vista/pie.php");  ?>
 </body>
 </html>                                   
 <?php 
